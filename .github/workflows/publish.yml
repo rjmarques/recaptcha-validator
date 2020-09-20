@@ -1,0 +1,22 @@
+name: publish recaptcha-validator p+ackage
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: echo '::set-env name=GITHUB_TOKEN::${{secrets.GITHUB_TOKEN}}'
+      - run: npm install
+      - run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          npm version minor
+      - run: npm publish --access public

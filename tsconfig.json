@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "allowJs": true,
+    "outDir": "./lib",
+    "declaration": true,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "baseUrl": "./"
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["./node_modules", "./src/**/*.test.ts"]
+}
